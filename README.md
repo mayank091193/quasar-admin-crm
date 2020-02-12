@@ -12,12 +12,12 @@ A free and beautiful Quasar template for CRM needs. This template also includes 
 * **Clone the repository**
 
 ```
-git clone https://github.com/mayank091193/crm-admin.git
+git clone https://github.com/mayank091193/quasar-admin-crm.git
 ```
 
 ## Install the dependencies
 ```bash
-cd crm-admin
+cd quasar-admin-crm
 npm install
 ```
 
