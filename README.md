@@ -40,6 +40,7 @@ quasar build
 	title="Dashboard"  />
 		</kbd>
 </p>
+
 **Customer Management**
 <p float="left">
 	<kbd>
@@ -47,6 +48,7 @@ quasar build
 	title="Customer Management"  />	
 	</kbd>
 </p>
+
 **Change Request**
 <p float="left">
 	<kbd>
