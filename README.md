@@ -1,4 +1,4 @@
-# CRM Admin (crm_admin)
+# Quasar Admin CRM Template
 
 A free and beautiful Quasar template for CRM needs. This template also includes a variety of features that are required for admin template needs.
 
