@@ -33,19 +33,21 @@ quasar build
 ```
 
 ## Screens UI
-
+**Dashboard**
 <p float="left">
 	<kbd>
 <img src="assets/dashboard.png" border="1" alt="Dashboard"
 	title="Dashboard"  />
 		</kbd>
 </p>
+**Customer Management**
 <p float="left">
 	<kbd>
 <img src="assets/customer_management.png" border="1" alt="Customer Management"
 	title="Customer Management"  />	
 	</kbd>
 </p>
+**Change Request**
 <p float="left">
 	<kbd>
 <img src="assets/change_request.png" border="1" alt="Change Request"
