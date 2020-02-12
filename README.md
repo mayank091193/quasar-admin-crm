@@ -1,4 +1,4 @@
-# CRM Admin
+# CRM Admin (crm_admin)
 
 A free and beautiful Quasar template for CRM needs. This template also includes a variety of features that are required for admin template needs.
 
@@ -6,17 +6,17 @@ A free and beautiful Quasar template for CRM needs. This template also includes 
 * [Quasar Framework](https://quasar.dev/)
 * [Vue.js](https://vuejs.org/)
 
-## Install the dependencies
-```bash
-npm install
-```
 
 ## Installation
 
-* **Clone and install packages**
+* **Clone the repository**
 
 ```
 git clone https://github.com/mayank091193/crm-admin.git
+```
+
+## Install the dependencies
+```bash
 cd crm-admin
 npm install
 ```
@@ -36,15 +36,19 @@ quasar build
 
 <p float="left">
 	<kbd>
-<img src="assets/dashboard.jpg" border="1" width="260px" height="480px" alt="Dashboard"
+<img src="assets/dashboard.png" border="1" alt="Dashboard"
 	title="Dashboard"  />
 		</kbd>
+</p>
+<p float="left">
 	<kbd>
-<img src="assets/customer_management.jpg" border="1" width="260px" height="480px" alt="Customer Management"
+<img src="assets/customer_management.png" border="1" alt="Customer Management"
 	title="Customer Management"  />	
 	</kbd>
+</p>
+<p float="left">
 	<kbd>
-<img src="assets/change_request.jpg" border="1" width="260px" height="480px" alt="Change Request"
+<img src="assets/change_request.png" border="1" alt="Change Request"
 	title="Change Request"  />
 	</kbd>
 </p>
