@@ -3,9 +3,9 @@
     <q-header reveal elevated style="background: linear-gradient(145deg, rgb(74, 94, 137) 15%, rgb(30, 75, 131) 70%);">
         <q-toolbar>
           <q-btn @click="left = !left" flat round dense icon="menu" class="q-mr-sm" />
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">
-          </q-avatar>
+<!--          <q-avatar>-->
+<!--            <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">-->
+<!--          </q-avatar>-->
 
           <q-toolbar-title>CRM Admin</q-toolbar-title>
 
@@ -59,7 +59,7 @@
               </q-item-section>
             </q-item>
 
-            <q-item active-class="tab-active" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item active-class="tab-active" to="/my_profile" class="q-ma-sm navigation-item" clickable v-ripple>
               <q-item-section avatar>
                 <q-icon name="drafts" />
               </q-item-section>

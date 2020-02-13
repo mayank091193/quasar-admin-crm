@@ -54,46 +54,149 @@
       <draggable class="row q-col-gutter-sm q-ma-xs" group="people" @start="drag=true" @end="drag=false">
         <div class="col-4">
           <q-card flat bordered class="">
-            <q-card-section>
-              <div class="text-h6">Sales vs Goals</div>
+            <q-card-section class="row">
+              <div class="text-h6 col-12">Sales vs Goals
+                <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('bar')" color="grey-8">
+                  <q-tooltip>Download</q-tooltip>
+                </q-btn>
+              </div>
             </q-card-section>
 
             <q-separator inset></q-separator>
 
             <q-card-section>
-              <IEcharts :option="barChartOption" :resizable="true" style="height:220px"/>
+              <IEcharts :option="barChartOption" ref="bar" :resizable="true" style="height:220px"/>
             </q-card-section>
           </q-card>
         </div>
         <div class="col-4">
 
           <q-card flat bordered class="">
-            <q-card-section>
-              <div class="text-h6">Market Share & Growth</div>
+            <q-card-section class="row">
+              <div class="text-h6 col-12">Market Share & Growth
+                <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('line')" color="grey-8">
+                  <q-tooltip>Download</q-tooltip>
+                </q-btn>
+              </div>
             </q-card-section>
 
             <q-separator inset></q-separator>
 
             <q-card-section>
-              <IEcharts :option="lineChartOption" :resizable="true" style="height:220px"/>
+              <IEcharts ref="line" :option="lineChartOption" :resizable="true" style="height:220px"/>
             </q-card-section>
           </q-card>
         </div>
         <div class="col-4">
 
           <q-card flat bordered class="">
-            <q-card-section>
-              <div class="text-h6">Sales vs. Quota</div>
+            <q-card-section class="row">
+              <div class="text-h6 col-12">Sales vs Quota
+                <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('gauge')" color="grey-8">
+                  <q-tooltip>Download</q-tooltip>
+                </q-btn>
+              </div>
+
             </q-card-section>
 
             <q-separator inset></q-separator>
 
             <q-card-section>
-              <IEcharts :option="stackedBarOptions" :resizable="true" style="height:220px"/>
+              <IEcharts :option="gaugeOptions" ref="gauge" :resizable="true" style="height:220px"/>
             </q-card-section>
           </q-card>
         </div>
       </draggable>
+    </div>
+    <div class="row q-col-gutter-sm q-ma-xs">
+      <div class="col-4">
+        <q-card flat bordered class="">
+          <q-card-section>
+            <div class="text-h6">Key Competitors
+              <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('pie')" color="grey-8">
+                <q-tooltip>Download</q-tooltip>
+              </q-btn>
+            </div>
+          </q-card-section>
+
+          <q-separator inset></q-separator>
+
+          <q-card-section>
+            <IEcharts ref="pie" :option="pieOptions" :resizable="true" style="height:270px"/>
+          </q-card-section>
+        </q-card>
+      </div>
+      <div class="col-8">
+        <q-card flat bordered class="">
+          <q-card-section>
+            <div class="text-h6">Sales Pipeline by Sales Rep
+              <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('stack_bar')"
+                     color="grey-8">
+                <q-tooltip>Download</q-tooltip>
+              </q-btn>
+            </div>
+          </q-card-section>
+
+          <q-separator inset></q-separator>
+
+          <q-card-section>
+            <IEcharts ref="stack_bar" :option="stackedBarOptions" :resizable="true" style="height:270px"/>
+          </q-card-section>
+        </q-card>
+      </div>
+    </div>
+    <div class="row q-col-gutter-sm q-ma-xs">
+      <div class="col-12">
+        <q-card flat bordered class="bg-white">
+          <q-table
+            title="All Activities"
+            :data="data"
+             :hide-header="mode === 'grid'"
+            :columns="columns"
+            row-key="name"
+            :grid="mode"
+            :filter="filter"
+            :pagination.sync="pagination"
+          >
+            <template v-slot:top-right="props">
+              <q-input borderless dense debounce="300" v-model="filter" placeholder="Search">
+                <template v-slot:append>
+                  <q-icon name="search"/>
+                </template>
+              </q-input>
+
+              <q-btn
+                flat
+                round
+                dense
+                :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
+                @click="props.toggleFullscreen"
+                v-if="mode === 'list'"
+              >
+                <q-tooltip
+                  :disable="$q.platform.is.mobile"
+                  v-close-popup
+                >{{props.inFullscreen ? 'Exit Fullscreen' : 'Toggle Fullscreen'}}
+                </q-tooltip>
+              </q-btn>
+
+               <q-btn
+              flat
+              round
+              dense
+              :icon="mode === 'grid' ? 'list' : 'grid_on'"
+              @click="mode = mode === 'grid' ? 'list' : 'grid'; separator = mode === 'grid' ? 'none' : 'horizontal'"
+              v-if="!props.inFullscreen"
+            >
+              <q-tooltip
+                :disable="$q.platform.is.mobile"
+                v-close-popup
+              >{{mode==='grid' ? 'List' : 'Grid'}}</q-tooltip>
+            </q-btn>
+            </template>
+          </q-table>
+        </q-card>
+      </div>
     </div>
   </q-page>
 </template>
@@ -118,11 +221,6 @@
                     },
                     legend: {
                         bottom: 0
-                    },
-                    toolbox: {
-                        feature: {
-                            saveAsImage: {title: "Download"}
-                        }
                     },
                     tooltip: {},
                     dataset: {
@@ -162,11 +260,6 @@
                     legend: {
                         bottom: 0
                     },
-                    toolbox: {
-                        feature: {
-                            saveAsImage: {title: "Download"}
-                        }
-                    },
                     tooltip: {
                         // formatter:
                         //     function (param) {
@@ -194,45 +287,94 @@
                                 return value + ' %'
                             }
                         }
-                        // name: 'Goal',
-                        // nameLocation: 'center',
-                        // nameGap: 30,
-                        // nameTextStyle:{
-                        //     fontWeight: 'bold'
-                        // }
                     },
                     series: [
                         {type: 'line', name: 'Share'},
                         {type: 'line', name: 'Growth'}
                     ]
                 },
+                pieOptions: {
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        orient: 'horizontal',
+                        bottom: 0,
+                        width: 300
+                    },
+                    series: [
+                        {
+                            name: 'Competitor',
+                            type: 'pie',
+                            radius: ['40%', '70%'],
+                            avoidLabelOverlap: false,
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'inner',
+                                    formatter: function (param, index) {
+                                        return param.value + ' %'
+                                    }
+                                },
+                                emphasis: {
+                                    show: true,
+                                    textStyle: {
+                                        fontSize: '20',
+                                        fontWeight: 'bold'
+                                    }
+                                }
+                            },
+                            labelLine: {
+                                normal: {
+                                    show: false
+                                }
+                            },
+                            selectedMode: 'single',
+                            data: [
+                                {value: 40, name: 'Product 1', selected: true},
+                                {value: 20, name: 'Competitor 1', selected: false},
+                                {value: 15, name: 'Competitor 2', selected: false},
+                                {value: 25, name: 'Competitor 3', selected: false},
+                            ]
+                        }
+                    ]
+                },
                 gaugeOptions: {
                     tooltip: {
                         formatter: '{a} <br/>{b} : {c}%'
-                    },
-                    toolbox: {
-                        feature: {
-                            saveAsImage: {title: "Download"}
-                        }
                     },
                     series: [
                         {
                             type: 'gauge',
                             detail: {formatter: '{value}%'},
-                            data: [{value: 30}]
+                            data: [{value: 30}],
+                            min: 0,
+                            radius: '100%',
+                            axisLine: {
+                                show: true,
+                                lineStyle: {
+                                    color: [[0.35, '#293c55'], [0.65, '#61a0a8'], [1, '#c23731']],
+                                    width: 20
+                                }
+                            },
+
                         }
                     ]
                 },
                 stackedBarOptions: {
                     tooltip: {
                         trigger: 'axis',
-                        axisPointer: {
-                            type: 'shadow'
-                        },
+                        axisPointer:
+                            {
+                                type: 'shadow'
+                            },
                         backgroundColor: 'rgba(50,50,50,0.9)',
 
                     },
-                    color: ['#3395dd', '#ed7d31', '#3b3b3b'],
+                    legend: {
+                        bottom: 0
+                    },
+                    color: ['#3395dd', '#ed892d', '#34393b'],
                     // legend: {
                     //     y: "bottom",
                     //     data: [{name: 'Territory Sales', icon: 'circle'}, {
@@ -240,52 +382,132 @@
                     //         icon: 'circle'
                     //     }]
                     // },
-                    grid: {
-                        x: 70,
-                        y: 30,
-                        x2: 45,
-                        y2: 50
-                    },
-                    toolbox: {
-                        show: false
-                    },
+                    grid:
+                        {
+                            bottom: '10%',
+                            left: '15%',
+                            top: '9%'
+                        },
                     calculable: true,
                     xAxis:
                         {
                             type: 'value',
-                            position: 'top',
-                            axisLine: {
-                                show: false
+                            position:
+                                'top',
+                            axisLine:
+                                {
+                                    show: false
+                                },
+                            axisLabel: {
+                                formatter: function (value, index) {
+                                    return '$' + value;
+                                }
                             }
                         },
                     yAxis: [
                         {
                             type: 'category',
                             data: ['Alex Morrow', 'Joanna Carter', 'Jimmy Joanna', 'Mack Hales'],
-                            axisLabel: {fontSize: 9}
+                            axisLabel: {
+                                fontSize: 12
+                            }
                         }
                     ],
-                    series: [{
-                        name: 'Qualification',
-                        type: 'bar',
-                        stack: 'A',
-                        data: [300, 350, 400, 500]
+                    series:
+                        [{
+                            name: 'Qualification',
+                            type: 'bar',
+                            stack: 'A',
+                            data: [300, 350, 400, 500]
 
-                    },{
-                        name: 'Discovery',
-                        type: 'bar',
-                        stack: 'A',
-                        data: [100, 180, 250, 300]
+                        }, {
+                            name: 'Discovery',
+                            type: 'bar',
+                            stack: 'A',
+                            data: [100, 180, 250, 300]
 
-                    },{
-                        name: 'Quote',
-                        type: 'bar',
-                        stack: 'A',
-                        data: [100, 120, 200, 220]
+                        }, {
+                            name: 'Quote',
+                            type: 'bar',
+                            stack: 'A',
+                            data: [100, 120, 200, 220]
 
-                    }]
+                        }]
+                },
+                filter: '',
+                mode:'list',
+                columns: [
+                    {name: 'activity_id', align: 'left', label: 'Activity ID', field: 'activity_id', sortable: true},
+                    {
+                        name: 'desc',
+                        required: true,
+                        label: 'Activity Name',
+                        align: 'left',
+                        field: row => row.name,
+                        sortable: true
+                    },
+                    {name: 'regarding', align: 'left', label: 'Regarding', field: 'regarding', sortable: true},
+                    {name: 'owner', align: 'left', label: 'Owner', field: 'owner', sortable: true},
+                    {
+                        name: 'creation_date',
+                        align: 'left',
+                        label: 'Creation Date',
+                        field: 'creation_date',
+                        sortable: true
+                    }
+                ],
+                data: [
+                    {
+                        activity_id: "C001",
+                        name: 'Advanced communications',
+                        regarding: 'Presentation',
+                        owner: 'John',
+                        creation_date: '12-09-2019'
+                    },
+                    {
+                        activity_id: "C002",
+                        name: 'New drug discussion',
+                        regarding: 'Meeting',
+                        owner: 'John',
+                        creation_date: '09-02-2019'
+                    },
+                    {
+                        activity_id: "C003",
+                        name: 'Universal services discussion',
+                        regarding: 'Meeting',
+                        owner: 'John',
+                        creation_date: '03-25-2019'
+                    },
+                    {
+                        activity_id: "C004",
+                        name: 'Add on business',
+                        regarding: 'Business',
+                        owner: 'John',
+                        creation_date: '03-18-2019'
+                    },
+                    {
+                        activity_id: "C005",
+                        name: 'Promotional Activity',
+                        regarding: 'Personal',
+                        owner: 'John',
+                        creation_date: '04-09-2019'
+                    },
+                ],
+                pagination: {
+                    rowsPerPage: 10
                 }
             }
+        },
+        methods: {
+            SaveImage(type) {
+                const linkSource = this.$refs[type].getDataURL();
+                const downloadLink = document.createElement('a');
+                document.body.appendChild(downloadLink);
+                downloadLink.href = linkSource;
+                downloadLink.target = '_self';
+                downloadLink.download = type + '.png';
+                downloadLink.click();
+            },
         }
     }
 </script>
