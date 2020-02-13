@@ -3,23 +3,58 @@
     <q-table
       title="Change Request"
       :data="data"
+      :hide-header="mode === 'grid'"
       :columns="columns"
       row-key="name"
+      :grid="mode=='grid'"
       :filter="filter"
       :pagination.sync="pagination"
     >
-      <template v-slot:top-right>
+      <template v-slot:top-right="props">
         <q-input borderless dense debounce="300" v-model="filter" placeholder="Search">
           <template v-slot:append>
             <q-icon name="search"/>
           </template>
         </q-input>
+
+        <q-btn
+          flat
+          round
+          dense
+          :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
+          @click="props.toggleFullscreen"
+          v-if="mode === 'list'"
+        >
+          <q-tooltip
+            :disable="$q.platform.is.mobile"
+            v-close-popup
+          >{{props.inFullscreen ? 'Exit Fullscreen' : 'Toggle Fullscreen'}}
+          </q-tooltip>
+        </q-btn>
+
+        <q-btn
+          flat
+          round
+          dense
+          :icon="mode === 'grid' ? 'list' : 'grid_on'"
+          @click="mode = mode === 'grid' ? 'list' : 'grid'; separator = mode === 'grid' ? 'none' : 'horizontal'"
+          v-if="!props.inFullscreen"
+        >
+          <q-tooltip
+            :disable="$q.platform.is.mobile"
+            v-close-popup
+          >{{mode==='grid' ? 'List' : 'Grid'}}
+          </q-tooltip>
+        </q-btn>
+
       </template>
       <template v-slot:body-cell-status="props">
-            <q-td :props="props">
-              <q-chip :color="(props.row.status == 'Approved')?'green':(props.row.status == 'Rejected'?'red':'grey')" text-color="white" dense class="text-weight-bolder" square style="width: 85px">{{props.row.status}}</q-chip>
-            </q-td>
-          </template>
+        <q-td :props="props">
+          <q-chip :color="(props.row.status == 'Approved')?'green':(props.row.status == 'Rejected'?'red':'grey')"
+                  text-color="white" dense class="text-weight-bolder" square style="width: 85px">{{props.row.status}}
+          </q-chip>
+        </q-td>
+      </template>
     </q-table>
   </q-page>
 </template>
@@ -29,6 +64,7 @@
         data() {
             return {
                 filter: '',
+                mode: 'list',
                 columns: [
                     {name: 'change_id', align: 'left', label: 'Change ID', field: 'change_id', sortable: true},
                     {
@@ -41,7 +77,13 @@
                     },
                     {name: 'change_type', align: 'left', label: 'Change Type', field: 'change_type', sortable: true},
                     {name: 'status', align: 'left', label: 'Status', field: 'status', sortable: true},
-                    {name: 'creation_date', align: 'left', label: 'Creation Date', field: 'creation_date', sortable: true}
+                    {
+                        name: 'creation_date',
+                        align: 'left',
+                        label: 'Creation Date',
+                        field: 'creation_date',
+                        sortable: true
+                    }
                 ],
                 data: [
                     {
@@ -144,14 +186,14 @@
                     }
                 ],
                 pagination: {
-                  rowsPerPage: 10
+                    rowsPerPage: 10
                 }
             }
         }
     }
 </script>
 <style>
-  .q-chip__content{
+  .q-chip__content {
     display: block;
     text-align: center;
   }

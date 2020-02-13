@@ -151,10 +151,10 @@
           <q-table
             title="All Activities"
             :data="data"
-             :hide-header="mode === 'grid'"
+            :hide-header="mode === 'grid'"
             :columns="columns"
             row-key="name"
-            :grid="mode"
+            :grid="mode=='grid'"
             :filter="filter"
             :pagination.sync="pagination"
           >
@@ -180,19 +180,20 @@
                 </q-tooltip>
               </q-btn>
 
-               <q-btn
-              flat
-              round
-              dense
-              :icon="mode === 'grid' ? 'list' : 'grid_on'"
-              @click="mode = mode === 'grid' ? 'list' : 'grid'; separator = mode === 'grid' ? 'none' : 'horizontal'"
-              v-if="!props.inFullscreen"
-            >
-              <q-tooltip
-                :disable="$q.platform.is.mobile"
-                v-close-popup
-              >{{mode==='grid' ? 'List' : 'Grid'}}</q-tooltip>
-            </q-btn>
+              <q-btn
+                flat
+                round
+                dense
+                :icon="mode === 'grid' ? 'list' : 'grid_on'"
+                @click="mode = mode === 'grid' ? 'list' : 'grid'; separator = mode === 'grid' ? 'none' : 'horizontal'"
+                v-if="!props.inFullscreen"
+              >
+                <q-tooltip
+                  :disable="$q.platform.is.mobile"
+                  v-close-popup
+                >{{mode==='grid' ? 'List' : 'Grid'}}
+                </q-tooltip>
+              </q-btn>
             </template>
           </q-table>
         </q-card>
@@ -210,7 +211,6 @@
     Vue.component('draggable', draggable);
 
     export default {
-        name: "dashboard",
         data() {
             return {
                 barChartOption: {
@@ -435,7 +435,7 @@
                         }]
                 },
                 filter: '',
-                mode:'list',
+                mode: 'list',
                 columns: [
                     {name: 'activity_id', align: 'left', label: 'Activity ID', field: 'activity_id', sortable: true},
                     {
