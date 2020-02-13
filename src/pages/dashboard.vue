@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <div class="row q-col-gutter-sm q-ma-xs">
+    <div class="row q-col-gutter-sm q-ma-xs q-mr-sm">
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <q-card>
           <q-card-section class="bg-blue-8 text-white">
@@ -51,7 +51,7 @@
       </div>
     </div>
     <div>
-      <draggable class="row q-col-gutter-sm q-ma-xs" group="people" @start="drag=true" @end="drag=false">
+      <draggable class="row q-col-gutter-sm q-ma-xs q-mr-sm" group="people" @start="drag=true" @end="drag=false">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <q-card flat bordered class="">
             <q-card-section class="row">
@@ -108,7 +108,7 @@
         </div>
       </draggable>
     </div>
-    <div class="row q-col-gutter-sm q-ma-xs">
+    <div class="row q-col-gutter-sm q-ma-xs q-mr-sm">
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <q-card flat bordered class="">
           <q-card-section>
