@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <div class="row q-col-gutter-sm q-ma-xs">
-      <div class="col-6">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <q-card class="my-card" flat bordered>
           <q-card-section horizontal>
             <q-card-section class="q-pt-xs">
@@ -34,7 +34,7 @@
           </q-card-actions>
         </q-card>
       </div>
-      <div class="col-6">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <q-card>
           <q-card-section>
             <q-form

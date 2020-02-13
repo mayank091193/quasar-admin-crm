@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <div class="row q-col-gutter-sm q-ma-xs">
-      <div class="col-4">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <q-card>
           <q-card-section class="bg-blue-8 text-white">
             <div class="row">
@@ -16,7 +16,7 @@
           </q-card-section>
         </q-card>
       </div>
-      <div class="col-4">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <q-card>
           <q-card-section class="bg-green-8 text-white">
             <div class="row">
@@ -31,7 +31,7 @@
           </q-card-section>
         </q-card>
       </div>
-      <div class="col-4">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <q-card>
           <q-card-section class="bg-orange-9 text-white">
             <div class="row">
@@ -52,7 +52,7 @@
     </div>
     <div>
       <draggable class="row q-col-gutter-sm q-ma-xs" group="people" @start="drag=true" @end="drag=false">
-        <div class="col-4">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <q-card flat bordered class="">
             <q-card-section class="row">
               <div class="text-h6 col-12">Sales vs Goals
@@ -69,7 +69,7 @@
             </q-card-section>
           </q-card>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 
           <q-card flat bordered class="">
             <q-card-section class="row">
@@ -87,7 +87,7 @@
             </q-card-section>
           </q-card>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 
           <q-card flat bordered class="">
             <q-card-section class="row">
@@ -109,7 +109,7 @@
       </draggable>
     </div>
     <div class="row q-col-gutter-sm q-ma-xs">
-      <div class="col-4">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <q-card flat bordered class="">
           <q-card-section>
             <div class="text-h6">Key Competitors
@@ -126,7 +126,7 @@
           </q-card-section>
         </q-card>
       </div>
-      <div class="col-8">
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
         <q-card flat bordered class="">
           <q-card-section>
             <div class="text-h6">Sales Pipeline by Sales Rep
