@@ -47,6 +47,14 @@
           </q-tooltip>
         </q-btn>
 
+        <q-btn
+          color="primary"
+          icon-right="archive"
+          label="Export to csv"
+          no-caps
+          @click="exportTable"
+        />
+
       </template>
       <template v-slot:body-cell-status="props">
         <q-td :props="props">
@@ -60,6 +68,23 @@
 </template>
 
 <script>
+
+    import {exportFile} from 'quasar'
+
+    function wrapCsvValue(val, formatFn) {
+        let formatted = formatFn !== void 0
+            ? formatFn(val)
+            : val
+
+        formatted = formatted === void 0 || formatted === null
+            ? ''
+            : String(formatted)
+
+        formatted = formatted.split('"').join('""')
+
+        return `"${formatted}"`
+    }
+
     export default {
         data() {
             return {
@@ -187,6 +212,33 @@
                 ],
                 pagination: {
                     rowsPerPage: 10
+                }
+            }
+        },
+        methods: {
+            exportTable() {
+                // naive encoding to csv format
+                const content = [this.columns.map(col => wrapCsvValue(col.label))].concat(
+                    this.data.map(row => this.columns.map(col => wrapCsvValue(
+                        typeof col.field === 'function'
+                            ? col.field(row)
+                            : row[col.field === void 0 ? col.name : col.field],
+                        col.format
+                    )).join(','))
+                ).join('\r\n')
+
+                const status = exportFile(
+                    'change-request.csv',
+                    content,
+                    'text/csv'
+                )
+
+                if (status !== true) {
+                    this.$q.notify({
+                        message: 'Browser denied file download...',
+                        color: 'negative',
+                        icon: 'warning'
+                    })
                 }
             }
         }

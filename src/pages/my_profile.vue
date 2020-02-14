@@ -8,7 +8,7 @@
               <div class="text-overline">US Region</div>
               <div class="text-h5 q-mt-sm q-mb-xs">Mayank Patel</div>
               <div class="text-caption text-grey">
-                Sales and Marketing Executive | graduate and past committee | keynote speaker on Selling and Recruiting
+                Sales and Marketing Executive | Graduate and past committee | Keynote speaker on Selling and Recruiting
                 Topics
               </div>
             </q-card-section>
@@ -23,15 +23,9 @@
 
           <q-separator/>
 
-          <q-card-actions>
-            <q-btn flat round icon="event"/>
-            <q-btn flat>
-              7:30PM
-            </q-btn>
-            <q-btn flat color="primary">
-              Reserve
-            </q-btn>
-          </q-card-actions>
+          <q-card-section>
+            Assessing clients needs and present suitable promoted products. Liaising with and persuading targeted doctors to prescribe our products utilizing effective sales skills.
+          </q-card-section>
         </q-card>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -55,7 +49,7 @@
 
               />
 
-               <q-input
+              <q-input
                 filled
                 v-model="user.age"
                 label="Age"
@@ -63,7 +57,15 @@
 
               />
 
-               <q-input
+              <q-input
+                filled
+                v-model="user.email"
+                label="Email"
+                lazy-rules
+
+              />
+
+              <q-input
                 filled
                 v-model="user.phone"
                 label="Phone"
@@ -94,7 +96,13 @@
         name: "dashboard",
         data() {
             return {
-                user: {first_name:'Mayank', last_name:'Patel', age: 30, phone: '98******23'},
+                user: {
+                    first_name: 'Mayank',
+                    last_name: 'Patel',
+                    age: 30,
+                    email: 'm******@****.com',
+                    phone: '98******23'
+                },
                 age: null,
                 accept: false
             }

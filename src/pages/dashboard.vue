@@ -194,6 +194,14 @@
                 >{{mode==='grid' ? 'List' : 'Grid'}}
                 </q-tooltip>
               </q-btn>
+
+              <q-btn
+                color="primary"
+                icon-right="archive"
+                label="Export to csv"
+                no-caps
+                @click="exportTable"
+              />
             </template>
           </q-table>
         </q-card>
@@ -205,10 +213,25 @@
 <script>
     import Vue from 'vue';
     import IEcharts from 'vue-echarts-v3/src/full.js';
-    import draggable from 'vuedraggable'
+    import draggable from 'vuedraggable';
+    import {exportFile} from 'quasar';
 
     Vue.component('IEcharts', IEcharts);
     Vue.component('draggable', draggable);
+
+    function wrapCsvValue(val, formatFn) {
+        let formatted = formatFn !== void 0
+            ? formatFn(val)
+            : val
+
+        formatted = formatted === void 0 || formatted === null
+            ? ''
+            : String(formatted)
+
+        formatted = formatted.split('"').join('""')
+
+        return `"${formatted}"`
+    }
 
     export default {
         data() {
@@ -508,6 +531,31 @@
                 downloadLink.download = type + '.png';
                 downloadLink.click();
             },
+            exportTable() {
+                // naive encoding to csv format
+                const content = [this.columns.map(col => wrapCsvValue(col.label))].concat(
+                    this.data.map(row => this.columns.map(col => wrapCsvValue(
+                        typeof col.field === 'function'
+                            ? col.field(row)
+                            : row[col.field === void 0 ? col.name : col.field],
+                        col.format
+                    )).join(','))
+                ).join('\r\n')
+
+                const status = exportFile(
+                    'activity.csv',
+                    content,
+                    'text/csv'
+                )
+
+                if (status !== true) {
+                    this.$q.notify({
+                        message: 'Browser denied file download...',
+                        color: 'negative',
+                        icon: 'warning'
+                    })
+                }
+            }
         }
     }
 </script>
