@@ -10,7 +10,7 @@
                 <div class="text-h5">160</div>
               </div>
               <div class="col-2">
-                <q-icon size="70px" name="trending_up"/>
+                <q-icon size="62px" name="trending_up"/>
               </div>
             </div>
           </q-card-section>
@@ -25,7 +25,7 @@
                 <div class="text-h5">140</div>
               </div>
               <div class="col-2">
-                <q-icon size="70px" name="far fa-dot-circle"/>
+                <q-icon size="62px" name="far fa-dot-circle"/>
               </div>
             </div>
           </q-card-section>
@@ -43,7 +43,7 @@
                 </div>
               </div>
               <div class="col-2">
-                <q-icon size="70px" name="compare_arrows"/>
+                <q-icon size="62px" name="compare_arrows"/>
               </div>
             </div>
           </q-card-section>
@@ -122,7 +122,7 @@
           <q-separator inset></q-separator>
 
           <q-card-section>
-            <IEcharts ref="pie" :option="pieOptions" :resizable="true" style="height:270px"/>
+            <IEcharts ref="pie" :option="pieOptions" :resizable="true" style="height:262px"/>
           </q-card-section>
         </q-card>
       </div>
@@ -140,7 +140,7 @@
           <q-separator inset></q-separator>
 
           <q-card-section>
-            <IEcharts ref="stack_bar" :option="stackedBarOptions" :resizable="true" style="height:270px"/>
+            <IEcharts ref="stack_bar" :option="stackedBarOptions" :resizable="true" style="height:262px"/>
           </q-card-section>
         </q-card>
       </div>
