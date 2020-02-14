@@ -122,7 +122,7 @@
           <q-separator inset></q-separator>
 
           <q-card-section>
-            <IEcharts ref="pie" :option="pieOptions" :resizable="true" style="height:262px"/>
+            <IEcharts ref="pie" :option="pieOptions" :resizable="true" style="height:270px"/>
           </q-card-section>
         </q-card>
       </div>
@@ -140,7 +140,7 @@
           <q-separator inset></q-separator>
 
           <q-card-section>
-            <IEcharts ref="stack_bar" :option="stackedBarOptions" :resizable="true" style="height:262px"/>
+            <IEcharts ref="stack_bar" :option="stackedBarOptions" :resizable="true" style="height:270px"/>
           </q-card-section>
         </q-card>
       </div>
