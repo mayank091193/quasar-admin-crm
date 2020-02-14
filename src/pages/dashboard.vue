@@ -51,7 +51,7 @@
       </div>
     </div>
     <div>
-      <draggable class="row q-col-gutter-sm q-ma-xs q-mr-sm" group="people" @start="drag=true" @end="drag=false">
+      <div class="row q-col-gutter-sm q-ma-xs q-mr-sm">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <q-card flat bordered class="">
             <q-card-section class="row">
@@ -106,7 +106,7 @@
             </q-card-section>
           </q-card>
         </div>
-      </draggable>
+      </div>
     </div>
     <div class="row q-col-gutter-sm q-ma-xs q-mr-sm">
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -213,11 +213,9 @@
 <script>
     import Vue from 'vue';
     import IEcharts from 'vue-echarts-v3/src/full.js';
-    import draggable from 'vuedraggable';
     import {exportFile} from 'quasar';
 
     Vue.component('IEcharts', IEcharts);
-    Vue.component('draggable', draggable);
 
     function wrapCsvValue(val, formatFn) {
         let formatted = formatFn !== void 0
