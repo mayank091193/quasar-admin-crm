@@ -10,6 +10,8 @@ Few Features:
 * Simple CRM Dashboard
 * Export feature
 
+## Site: [https://quasar-admin-crm-template.netlify.com/](https://quasar-admin-crm-template.netlify.com/)
+
 # Resources used
 * [Quasar Framework](https://quasar.dev/)
 * [Vue.js](https://vuejs.org/)
