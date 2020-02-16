@@ -85,15 +85,7 @@
 </template>
 
 <script>
-    import Vue from 'vue';
-    import IEcharts from 'vue-echarts-v3/src/full.js';
-    import draggable from 'vuedraggable'
-
-    Vue.component('IEcharts', IEcharts);
-    Vue.component('draggable', draggable);
-
     export default {
-        name: "dashboard",
         data() {
             return {
                 user: {
@@ -103,8 +95,6 @@
                     email: 'm******@****.com',
                     phone: '98******23'
                 },
-                age: null,
-                accept: false
             }
         },
     }

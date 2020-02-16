@@ -1,10 +1,11 @@
 
 const routes = [
+  { path: '/', component: () => import('pages/login.vue') },
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '/', component: () => import('pages/dashboard.vue') },
+      { path: '/dashboard', component: () => import('pages/dashboard.vue') },
       { path: '/customer_management', component: () => import('pages/customer_management.vue') },
       { path: '/change_request', component: () => import('pages/change_request.vue') },
       { path: '/my_profile', component: () => import('pages/my_profile.vue') },
