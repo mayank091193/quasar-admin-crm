@@ -10,7 +10,7 @@
           <q-toolbar-title>CRM Admin</q-toolbar-title>
 
           <q-btn flat round dense icon="search" class="q-mr-xs" />
-          <q-btn flat round dense icon="group_add" />
+          <q-btn flat round dense icon="fas fa-sign-out-alt" to="/" />
         </q-toolbar>
       </q-header>
     <q-drawer class="left-navigation text-white"
