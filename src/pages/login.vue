@@ -3,7 +3,7 @@
     <q-page-container>
       <q-page class="flex flex-center">
         <div id="particles-js"></div>
-        <q-card class="login-form">
+        <q-card class="login-form" v-bind:style="$q.platform.is.mobile?{'width': '80%'}:{'width':'30%'}">
           <q-img src="/statics/images/pharmacy.jpg"></q-img>
           <q-card-section>
             <q-avatar size="74px" class="absolute" style="top: 0;right: 25px;transform: translateY(-50%);">
@@ -185,7 +185,6 @@
   }
 
   .login-form {
-    position: absolute;
-    width: 30%;
+    position: absolute;    
   }
 </style>
