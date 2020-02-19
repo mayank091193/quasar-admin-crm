@@ -45,6 +45,14 @@ quasar build
 Do reach out to me at "mayank091193@gmail.com" for queries.
 
 ## Screens UI
+**Login**
+<p float="left">
+        <kbd>
+<img src="assets/login.png" border="1" alt="Login"
+        title="Login"  />
+                </kbd>
+</p>
+
 **Dashboard**
 <p float="left">
 	<kbd>
