@@ -9,6 +9,8 @@ const routes = [
       { path: '/customer_management', component: () => import('pages/customer_management.vue') },
       { path: '/change_request', component: () => import('pages/change_request.vue') },
       { path: '/my_profile', component: () => import('pages/my_profile.vue') },
+      { path: '/sales_invoices', component: () => import('pages/sales_invoices.vue') },
+      { path: '/transactions', component: () => import('pages/transactions.vue') },
     ]
   }
 ]
