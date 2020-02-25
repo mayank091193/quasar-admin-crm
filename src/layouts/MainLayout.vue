@@ -58,17 +58,7 @@
               <q-item-section>
                 Change Request
               </q-item-section>
-            </q-item>
-
-            <q-item active-class="tab-active" to="/my_profile" class="q-ma-sm navigation-item" clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon name="drafts"/>
-              </q-item-section>
-
-              <q-item-section>
-                My Profile
-              </q-item-section>
-            </q-item>
+            </q-item>            
 
             <q-item active-class="tab-active" to="/sales_invoices" class="q-ma-sm navigation-item" clickable v-ripple>
               <q-item-section avatar>
@@ -87,6 +77,16 @@
 
               <q-item-section>
                 Transactions
+              </q-item-section>
+            </q-item>
+
+            <q-item active-class="tab-active" to="/my_profile" class="q-ma-sm navigation-item" clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="drafts"/>
+              </q-item-section>
+
+              <q-item-section>
+                My Profile
               </q-item-section>
             </q-item>
           </q-list>

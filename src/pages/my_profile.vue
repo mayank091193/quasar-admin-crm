@@ -38,14 +38,12 @@
                 filled
                 v-model="user.first_name"
                 label="First Name"
-                lazy-rules
               />
 
               <q-input
                 filled
                 v-model="user.last_name"
                 label="Last Name"
-                lazy-rules
 
               />
 
@@ -53,7 +51,6 @@
                 filled
                 v-model="user.age"
                 label="Age"
-                lazy-rules
 
               />
 
@@ -61,7 +58,6 @@
                 filled
                 v-model="user.email"
                 label="Email"
-                lazy-rules
 
               />
 
@@ -69,7 +65,6 @@
                 filled
                 v-model="user.phone"
                 label="Phone"
-                lazy-rules
 
               />
 
