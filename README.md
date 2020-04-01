@@ -12,6 +12,18 @@ Few Features:
 
 ## Site: [https://quasar-admin-crm-template.netlify.com/](https://quasar-admin-crm-template.netlify.com/)
 
+# Support
+
+If this helped you, you can contribute to this project by supporting me:
+
+### [💜 Support my open-source work on GitHub](https://github.com/sponsors/mayank091193)
+
+Please check out my sponsor page.
+
+(GitHub currently **doubles your support**! So if you support me with $5/mo, I will get $10 instead! 😉)
+
+Thank you very much!!
+
 ## Resources used
 * [Quasar Framework](https://quasar.dev/)
 * [Vue.js](https://vuejs.org/)
