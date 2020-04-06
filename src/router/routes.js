@@ -11,6 +11,7 @@ const routes = [
       { path: '/my_profile', component: () => import('pages/my_profile.vue') },
       { path: '/sales_invoices', component: () => import('pages/sales_invoices.vue') },
       { path: '/transactions', component: () => import('pages/transactions.vue') },
+      { path: '/employee_salary_list', component: () => import('pages/employee_salary_list.vue') },
     ]
   }
 ]

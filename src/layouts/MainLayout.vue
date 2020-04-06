@@ -58,7 +58,7 @@
               <q-item-section>
                 Change Request
               </q-item-section>
-            </q-item>            
+            </q-item>
 
             <q-item active-class="tab-active" to="/sales_invoices" class="q-ma-sm navigation-item" clickable v-ripple>
               <q-item-section avatar>
@@ -77,6 +77,16 @@
 
               <q-item-section>
                 Transactions
+              </q-item-section>
+            </q-item>
+
+            <q-item active-class="tab-active" to="/employee_salary_list" class="q-ma-sm navigation-item" clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="list"/>
+              </q-item-section>
+
+              <q-item-section>
+                Employee Salary List
               </q-item-section>
             </q-item>
 
