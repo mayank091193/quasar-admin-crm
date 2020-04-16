@@ -70,6 +70,16 @@
               </q-item-section>
             </q-item>
 
+            <q-item active-class="tab-active" to="/quotes" class="q-ma-sm navigation-item" clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="money"/>
+              </q-item-section>
+
+              <q-item-section>
+                Quotes
+              </q-item-section>
+            </q-item>
+
             <q-item active-class="tab-active" to="/transactions" class="q-ma-sm navigation-item" clickable v-ripple>
               <q-item-section avatar>
                 <q-icon name="assignment"/>
@@ -80,13 +90,34 @@
               </q-item-section>
             </q-item>
 
-            <q-item active-class="tab-active" to="/employee_salary_list" class="q-ma-sm navigation-item" clickable v-ripple>
+            <q-item active-class="tab-active" to="/employee_salary_list" class="q-ma-sm navigation-item" clickable
+                    v-ripple>
               <q-item-section avatar>
                 <q-icon name="list"/>
               </q-item-section>
 
               <q-item-section>
                 Employee Salary List
+              </q-item-section>
+            </q-item>
+
+            <q-item active-class="tab-active" to="/calendar" class="q-ma-sm navigation-item" clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="calendar_today"/>
+              </q-item-section>
+
+              <q-item-section>
+                Calendar
+              </q-item-section>
+            </q-item>
+
+            <q-item active-class="tab-active" to="/department" class="q-ma-sm navigation-item" clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="business"/>
+              </q-item-section>
+
+              <q-item-section>
+                Department
               </q-item-section>
             </q-item>
 
