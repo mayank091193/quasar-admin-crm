@@ -37,6 +37,9 @@
 
               <div>
                 <q-btn label="Login" to="/dashboard" type="button" color="primary"/>
+
+                <a style="font-size: 30px;" class="float-right" href="https://github.com/sponsors/mayank091193"
+                   target="_blank" title="Donate"><i class="fas fa-heart" style="color: #eb5daa"></i></a>
               </div>
             </q-form>
           </q-card-section>
@@ -185,6 +188,6 @@
   }
 
   .login-form {
-    position: absolute;    
+    position: absolute;
   }
 </style>
