@@ -136,7 +136,7 @@
       </div>
     </q-drawer>
 
-    <q-page-container style="background-color:#f1f2f6">
+    <q-page-container style="background-color:#f1f2f6;height:100vh;overflow-y:auto;">
       <router-view/>
     </q-page-container>
 
