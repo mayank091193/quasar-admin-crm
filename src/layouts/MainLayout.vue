@@ -136,8 +136,16 @@
       </div>
     </q-drawer>
 
-    <q-page-container style="background-color:#f1f2f6;height:100vh;overflow-y:auto;">
-      <router-view/>
+    <q-page-container>
+      <q-page class="row no-wrap">
+        <div class="col">
+          <div class="column full-height">
+            <q-scroll-area class="col q-pr-sm" visible>
+              <router-view />
+            </q-scroll-area>
+          </div>
+        </div>
+      </q-page>
     </q-page-container>
 
 
