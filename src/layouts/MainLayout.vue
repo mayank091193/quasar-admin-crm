@@ -139,9 +139,9 @@
     <q-page-container>
       <q-page class="row no-wrap">
         <div class="col">
-          <div class="column full-height">
-            <q-scroll-area class="col q-pr-sm" visible>
-              <router-view />
+          <div class="full-height">
+            <q-scroll-area class="col q-pr-sm full-height" visible>
+              <router-view/>
             </q-scroll-area>
           </div>
         </div>
@@ -179,5 +179,9 @@
 
   .tab-active {
     background-color: green;
+  }
+
+  body {
+    background: #f1f1f1 !important;
   }
 </style>
