@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh LpR lFf">
-    <q-header reveal elevated style="background: linear-gradient(145deg, rgb(74, 94, 137) 15%, rgb(30, 75, 131) 70%);">
+    <q-header reveal style="background: linear-gradient(145deg, rgb(74, 94, 137) 15%, rgb(30, 75, 131) 70%);">
       <q-toolbar>
         <q-btn @click="left = !left" flat round dense icon="menu" class="q-mr-sm"/>
         <!--          <q-avatar>-->
@@ -36,7 +36,17 @@
               </q-item-section>
 
               <q-item-section>
-                Dashboard
+                Dashboard v1
+              </q-item-section>
+            </q-item>
+
+            <q-item active-class="tab-active" to="/dashboard_v2" exact class="q-ma-sm navigation-item" clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="dashboard"/>
+              </q-item-section>
+
+              <q-item-section>
+                Dashboard v2
               </q-item-section>
             </q-item>
 
