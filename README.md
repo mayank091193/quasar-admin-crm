@@ -1,3 +1,11 @@
+[![MadeWithVueJs.com shield](https://madewithvuejs.com/storage/repo-shields/2437-shield.svg)](https://madewithvuejs.com/p/quasar-admin-crm/shield-link)
+
+**“Quasar Admin CRM is being sponsored by the following tool; please help to support us by taking a look and signing up to a free trial”**
+
+<a href="https://tracking.gitads.io/?repo=quasar-admin-crm">
+<img src="https://images.gitads.io/quasar-admin-crm" alt="GitAds"/> </a>
+
+
 # Quasar Admin CRM Template
 
 A free and beautiful Quasar template for CRM needs. This template also includes a variety of features that are required for admin template needs.
