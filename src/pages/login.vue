@@ -2,7 +2,9 @@
   <q-layout>
     <q-page-container>
       <q-page class="flex flex-center">
-        <div id="particles-js"></div>
+        <div id="particles-js" :class="$q.dark.isActive?'dark_gradient':'normal_gradient'"></div>
+        <q-btn color="white" class="absolute-top-right" flat round @click="$q.dark.toggle()"
+               :icon="$q.dark.isActive ? 'nights_stay' : 'wb_sunny'"/>
         <q-card class="login-form" v-bind:style="$q.platform.is.mobile?{'width': '80%'}:{'width':'30%'}">
           <q-img src="/statics/images/pharmacy.jpg"></q-img>
           <q-card-section>
@@ -181,12 +183,16 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(145deg, rgb(74, 94, 137) 15%, #b61924 70%);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
   }
-
+  .normal_gradient{
+    background: linear-gradient(145deg, rgb(74, 94, 137) 15%, #b61924 70%);
+  }
+  .dark_gradient{
+    background: linear-gradient(145deg, rgb(11, 26, 61) 15%, #4c1014 70%);
+  }
   .login-form {
     position: absolute;
   }

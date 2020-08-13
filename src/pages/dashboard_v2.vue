@@ -1,85 +1,93 @@
 <template>
   <q-page class="q-pt-xs">
     <div class="q-ma-md">
-      <div class="row q-my-md shadow bg-white" style="border-radius: 4px;border: 1px solid rgba(0, 0, 0, 0.12);">
-        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 box_1 q-pa-sm">
-          <q-item class="q-pb-none q-pt-xs">
-            <q-item-section>
-              <q-item-label class="text-h4" style="font-weight: 500;letter-spacing: 3px;">900</q-item-label>
-              <q-item-label class="text-grey-7" style="letter-spacing: 1px;">Total Orders</q-item-label>
-            </q-item-section>
+      <div class="row q-my-md shadow" style="border-radius: 4px;border: 1px solid rgba(0, 0, 0, 0.12);">
+        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 box_1">
+          <q-card class="no-shadow q-pa-sm">
+            <q-item class="q-pb-none q-pt-xs">
+              <q-item-section>
+                <q-item-label class="text-h4" style="font-weight: 500;letter-spacing: 3px;">900</q-item-label>
+                <q-item-label :class="!$q.dark.isActive? 'text-grey-7':'text-white'" style="letter-spacing: 1px;">Total Orders</q-item-label>
+              </q-item-section>
 
-            <q-item-section side>
-              <q-icon name="o_shopping_cart" class="box_1" size="60px"></q-icon>
-            </q-item-section>
-          </q-item>
-          <q-item class="q-py-xs" style="min-height: unset">
-            <q-item-section>
-              <div class="progress-base q-my-sm">
-                <div class="progress-bar-1" style="width:70%"></div>
-              </div>
-            </q-item-section>
-          </q-item>
+              <q-item-section side>
+                <q-icon name="o_shopping_cart" class="box_1" size="60px"></q-icon>
+              </q-item-section>
+            </q-item>
+            <q-item class="q-py-xs" style="min-height: unset">
+              <q-item-section>
+                <div class="progress-base q-my-sm">
+                  <div class="progress-bar-1" style="width:70%"></div>
+                </div>
+              </q-item-section>
+            </q-item>
+          </q-card>
         </div>
-        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 box_2 q-pa-sm" style="border-left: 1px solid #efefef;"
+        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 box_2" style="border-left: 1px solid #efefef;"
              v-bind:class="{'border-top': $q.platform.is.mobile}">
-          <q-item class="q-pb-none q-pt-xs">
-            <q-item-section>
-              <q-item-label class="text-h4" style="font-weight: 500;letter-spacing: 3px;">1050</q-item-label>
-              <q-item-label class="text-grey-7" style="letter-spacing: 1px;">Total Expenses</q-item-label>
-            </q-item-section>
+          <q-card class="no-shadow q-pa-sm">
+            <q-item class="q-pb-none q-pt-xs">
+              <q-item-section>
+                <q-item-label class="text-h4" style="font-weight: 500;letter-spacing: 3px;">1050</q-item-label>
+                <q-item-label :class="!$q.dark.isActive? 'text-grey-7':'text-white'" style="letter-spacing: 1px;">Total Expenses</q-item-label>
+              </q-item-section>
 
-            <q-item-section side>
-              <q-icon name="o_account_balance_wallet" class="box_2" size="60px"></q-icon>
-            </q-item-section>
-          </q-item>
-          <q-item class="q-py-xs" style="min-height: unset">
-            <q-item-section>
-              <div class="progress-base q-my-sm">
-                <div class="progress-bar-2" style="width:40%"></div>
-              </div>
-            </q-item-section>
-          </q-item>
+              <q-item-section side>
+                <q-icon name="o_account_balance_wallet" class="box_2" size="60px"></q-icon>
+              </q-item-section>
+            </q-item>
+            <q-item class="q-py-xs" style="min-height: unset">
+              <q-item-section>
+                <div class="progress-base q-my-sm">
+                  <div class="progress-bar-2" style="width:40%"></div>
+                </div>
+              </q-item-section>
+            </q-item>
+          </q-card>
         </div>
-        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 box_3 q-pa-sm" style="border-left: 1px solid #efefef;"
+        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 box_3" style="border-left: 1px solid #efefef;"
              v-bind:class="{'border-top': $q.platform.is.mobile}">
-          <q-item class="q-pb-none q-pt-xs">
-            <q-item-section>
-              <q-item-label class="text-h4" style="font-weight: 500;letter-spacing: 3px;">80 %</q-item-label>
-              <q-item-label class="text-grey-7" style="letter-spacing: 1px;">Total Profit</q-item-label>
-            </q-item-section>
+          <q-card class="no-shadow q-pa-sm">
+            <q-item class="q-pb-none q-pt-xs">
+              <q-item-section>
+                <q-item-label class="text-h4" style="font-weight: 500;letter-spacing: 3px;">80 %</q-item-label>
+                <q-item-label :class="!$q.dark.isActive? 'text-grey-7':'text-white'" style="letter-spacing: 1px;">Total Profit</q-item-label>
+              </q-item-section>
 
-            <q-item-section side>
-              <q-icon name="o_account_balance" class="box_3" size="60px"></q-icon>
-            </q-item-section>
-          </q-item>
-          <q-item class="q-py-xs" style="min-height: unset">
-            <q-item-section>
-              <div class="progress-base q-my-sm">
-                <div class="progress-bar-3" style="width:80%"></div>
-              </div>
-            </q-item-section>
-          </q-item>
+              <q-item-section side>
+                <q-icon name="o_account_balance" class="box_3" size="60px"></q-icon>
+              </q-item-section>
+            </q-item>
+            <q-item class="q-py-xs" style="min-height: unset">
+              <q-item-section>
+                <div class="progress-base q-my-sm">
+                  <div class="progress-bar-3" style="width:80%"></div>
+                </div>
+              </q-item-section>
+            </q-item>
+          </q-card>
         </div>
-        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 box_4 q-pa-sm" style="border-left: 1px solid #efefef;"
+        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 box_4" style="border-left: 1px solid #efefef;"
              v-bind:class="{'border-top': $q.platform.is.mobile}">
-          <q-item class="q-pb-none q-pt-xs">
-            <q-item-section>
-              <q-item-label class="text-h4" style="font-weight: 500;letter-spacing: 3px;">720</q-item-label>
-              <q-item-label class="text-grey-7" style="letter-spacing: 1px;">New Customers</q-item-label>
-            </q-item-section>
+          <q-card class="no-shadow q-pa-sm">
+            <q-item class="q-pb-none q-pt-xs">
+              <q-item-section>
+                <q-item-label class="text-h4" style="font-weight: 500;letter-spacing: 3px;">720</q-item-label>
+                <q-item-label :class="!$q.dark.isActive? 'text-grey-7':'text-white'" style="letter-spacing: 1px;">New Customers</q-item-label>
+              </q-item-section>
 
-            <q-item-section side>
-              <q-icon name="o_people" class="box_4" size="60px"></q-icon>
-            </q-item-section>
-          </q-item>
-          <q-item class="q-py-xs" style="min-height: unset">
-            <q-item-section>
-              <div class="progress-base q-my-sm">
-                <div class="progress-bar-4" style="width:30%"></div>
-              </div>
-            </q-item-section>
-          </q-item>
+              <q-item-section side>
+                <q-icon name="o_people" class="box_4" size="60px"></q-icon>
+              </q-item-section>
+            </q-item>
+            <q-item class="q-py-xs" style="min-height: unset">
+              <q-item-section>
+                <div class="progress-base q-my-sm">
+                  <div class="progress-bar-4" style="width:30%"></div>
+                </div>
+              </q-item-section>
+            </q-item>
+          </q-card>
         </div>
       </div>
 
@@ -87,9 +95,9 @@
         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
           <q-card flat bordered class="shadow q-pa-none q-ma-none">
             <q-card-section class="row">
-              <div class="text-h6 text-grey-7 col-12">Sales vs Goals
+              <div :class="!$q.dark.isActive? 'text-grey-7':'text-white'" class="text-h6 col-12">Sales vs Goals
                 <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('sales_goals')"
-                       color="grey-6">
+                       :color="!$q.dark.isActive? 'grey-8':'white'">
                   <q-tooltip>Download</q-tooltip>
                 </q-btn>
               </div>
@@ -105,9 +113,9 @@
         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
           <q-card flat bordered class="shadow q-pa-none q-ma-none">
             <q-card-section class="row">
-              <div class="text-h6 text-grey-7 col-12">Market Share & Growth
+              <div :class="!$q.dark.isActive? 'text-grey-7':'text-white'" class="text-h6 col-12">Market Share & Growth
                 <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('market_share')"
-                       color="grey-6">
+                       :color="!$q.dark.isActive? 'grey-8':'white'">
                   <q-tooltip>Download</q-tooltip>
                 </q-btn>
               </div>
@@ -125,9 +133,9 @@
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <q-card flat bordered class="shadow q-pa-none q-ma-none">
             <q-card-section>
-              <div class="text-h6 text-grey-7">Key Competitors
+              <div :class="!$q.dark.isActive? 'text-grey-7':'text-white'" class="text-h6">Key Competitors
                 <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('key_competitors')"
-                       color="grey-6">
+                       :color="!$q.dark.isActive? 'grey-8':'white'">
                   <q-tooltip>Download</q-tooltip>
                 </q-btn>
               </div>
@@ -143,9 +151,9 @@
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
           <q-card flat bordered class="shadow q-pa-none q-ma-none">
             <q-card-section>
-              <div class="text-h6 text-grey-7">Sales Pipeline by Sales Rep
+              <div :class="!$q.dark.isActive? 'text-grey-7':'text-white'" class="text-h6">Sales Pipeline by Sales Rep
                 <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('sales_pipeline')"
-                       color="grey-6">
+                       :color="!$q.dark.isActive? 'grey-8':'white'">
                   <q-tooltip>Download</q-tooltip>
                 </q-btn>
               </div>
@@ -161,13 +169,13 @@
       </div>
       <div class="row q-col-gutter-md q-pt-md">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <q-card flat bordered class="bg-white shadow">
+          <q-card flat bordered class="shadow">
             <q-table
               title="All Activities"
               :data="data"
               :hide-header="mode === 'grid'"
-              table-class="text-grey-8"
-              table-header-class="text-grey-9"
+              :table-class="$q.dark.isActive?'text-white':'text-grey-8'"
+              :table-header-class="$q.dark.isActive?'text-white':'text-grey-9'"
               :columns="columns"
               row-key="name"
               :grid="mode=='grid'"
@@ -175,7 +183,7 @@
               :pagination.sync="pagination"
             >
               <template v-slot:top-left="props">
-                <div class="text-h6 text-grey-7">All Activities</div>
+                <div :class="$q.dark.isActive?'text-white':'text-grey-7'" class="text-h6">All Activities</div>
               </template>
               <template v-slot:body-cell-status="props">
                 <q-td :props="props" class="text-center">
@@ -191,7 +199,7 @@
                 </q-td>
               </template>
               <template v-slot:top-right="props">
-                <q-input borderless dense debounce="300" v-model="filter" placeholder="Search">
+                <q-input outlined dense debounce="300" v-model="filter" placeholder="Search">
                   <template v-slot:append>
                     <q-icon name="search"/>
                   </template>
@@ -270,185 +278,6 @@
     export default {
         data() {
             return {
-                areaChartOption: {
-                    legend: {},
-                    grid: {
-                        bottom: '9%',
-                        left: '9%',
-                        top: '10%',
-                        right: '5%',
-                        show: true
-                    },
-                    tooltip: {show: true},
-                    xAxis: {
-                        type: 'category',
-                        data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'Jul', 'Aug', 'Sep'],
-                        axisLine: {
-                            lineStyle: {
-                                color: 'grey'
-                            },
-                            show: false
-                        },
-                        axisTick: {
-                            show: false
-                        },
-                    },
-                    yAxis: {
-                        type: 'value',
-                        axisLine: {
-                            lineStyle: {
-                                color: 'grey'
-                            },
-                            show: false
-                        },
-                        axisTick: {
-                            show: false
-                        },
-                    },
-                    series: [{
-                        name: 'Sales',
-                        data: [0, 600, 300, 700, 700, 1330, 600, 500, 0],
-                        type: 'line',
-                        areaStyle: {},
-                        smooth: true,
-                        color: '#e4a3e2'
-                    },
-                        {
-                            name: 'Goals',
-                            data: [0, 300, 600, 400, 1000, 730, 840, 300, 0],
-                            type: 'line',
-                            areaStyle: {},
-                            smooth: true,
-                            color: '#25c0ea'
-                        }
-                    ]
-                },
-                pieOptions: {
-                    tooltip: {
-                        show: true
-                    },
-                    legend: {
-                        orient: 'horizontal',
-                        bottom: 0,
-                        width: 300
-                    },
-                    color: ['#66e398', '#cc9dd1', '#f0d377'],
-                    series: [
-                        {
-                            name: 'Competitor',
-                            type: 'pie',
-                            radius: ['40%', '70%'],
-                            avoidLabelOverlap: false,
-                            label: {
-                                normal: {
-                                    show: true,
-                                    position: 'inner',
-                                    formatter: function (param, index) {
-                                        return param.value + ' %'
-                                    }
-                                },
-                                emphasis: {
-                                    show: true,
-                                    textStyle: {
-                                        fontSize: '20',
-                                        fontWeight: 'bold'
-                                    }
-                                }
-                            },
-                            labelLine: {
-                                normal: {
-                                    show: false
-                                }
-                            },
-                            selectedMode: 'single',
-                            data: [
-                                {value: 40, name: 'Product 1', selected: true},
-                                {value: 20, name: 'Competitor 1', selected: false},
-                                {value: 15, name: 'Competitor 2', selected: false},
-                            ]
-                        }
-                    ]
-                },
-                stackedBarOptions: {
-                    tooltip: {
-                        trigger: 'axis',
-                        axisPointer:
-                            {
-                                type: 'shadow'
-                            },
-                        backgroundColor: 'rgba(50,50,50,0.9)',
-
-                    },
-                    legend: {},
-                    color: ['#cc9dd1', '#9cebaf', '#41eff7'],
-                    // legend: {
-                    //     y: "bottom",
-                    //     data: [{name: 'Territory Sales', icon: 'circle'}, {
-                    //         name: 'Remaining Nation Sales',
-                    //         icon: 'circle'
-                    //     }]
-                    // },
-                    grid:
-                        {
-                            bottom: '3%',
-                            left: '15%',
-                            top: '18%',
-                            right: '5%',
-                            show: true
-                        },
-                    calculable: true,
-                    xAxis:
-                        {
-                            type: 'value',
-                            position: 'top',
-                            axisLine: {
-                                show: false
-                            },
-                            axisTick: {
-                                show: false
-                            },
-                            axisLabel: {
-                                formatter: function (value, index) {
-                                    return '$' + value;
-                                }
-                            }
-                        },
-                    yAxis: [
-                        {
-                            type: 'category',
-                            data: ['Alex Morrow', 'Joanna Carter', 'Jimmy Joanna', 'Mack Hales'],
-                            axisLine: {
-                                show: false
-                            },
-                            axisTick: {
-                                show: false
-                            },
-                            axisLabel: {
-                                fontSize: 12
-                            }
-                        }
-                    ],
-                    series:
-                        [{
-                            name: 'Qualification',
-                            type: 'bar',
-                            stack: 'A',
-                            data: [300, 350, 400, 500]
-
-                        }, {
-                            name: 'Discovery',
-                            type: 'bar',
-                            stack: 'A',
-                            data: [100, 180, 250, 300]
-
-                        }, {
-                            name: 'Quote',
-                            type: 'bar',
-                            stack: 'A',
-                            data: [100, 120, 200, 220]
-
-                        }]
-                },
                 filter: '',
                 mode: 'list',
                 columns: [
@@ -529,6 +358,7 @@
                         data: dataAxis,
                         axisLabel: {
                             inside: false,
+                            color: this.$q.dark.isActive ? 'white' : '#676767'
                         },
                         axisTick: {
                             show: false
@@ -543,7 +373,10 @@
                     },
                     tooltip: {},
                     legend: {
-                        show: true
+                        show: true,
+                        textStyle: {
+                            color: this.$q.dark.isActive ? 'white' : '#676767'
+                        }
                     },
                     grid: {
                         bottom: '9%',
@@ -562,6 +395,9 @@
                         axisTick: {
                             show: false
                         },
+                        axisLabel: {
+                            color: this.$q.dark.isActive ? 'white' : '#676767'
+                        }
                     },
                     series: [
                         {
@@ -618,6 +454,210 @@
                                 }
                             },
                             data: growth_data
+                        }
+                    ]
+                }
+            },
+            areaChartOption() {
+                return {
+                    legend: {
+                        textStyle: {
+                            color: this.$q.dark.isActive ? 'white' : '#676767'
+                        }
+                    },
+                    grid: {
+                        bottom: '9%',
+                        left: '9%',
+                        top: '10%',
+                        right: '5%',
+                        show: true
+                    },
+                    tooltip: {show: true},
+                    xAxis: {
+                        type: 'category',
+                        data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'Jul', 'Aug', 'Sep'],
+                        axisLine: {
+                            lineStyle: {
+                                color: 'grey'
+                            },
+                            show: false
+                        },
+                        axisTick: {
+                            show: false
+                        },
+                        axisLabel: {
+                            color: this.$q.dark.isActive ? 'white' : '#676767'
+                        }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisLine: {
+                            lineStyle: {
+                                color: 'grey'
+                            },
+                            show: false
+                        },
+                        axisTick: {
+                            show: false
+                        },
+                        axisLabel: {
+                            color: this.$q.dark.isActive ? 'white' : '#676767'
+                        }
+                    },
+                    series: [{
+                        name: 'Sales',
+                        data: [0, 600, 300, 700, 700, 1330, 600, 500, 0],
+                        type: 'line',
+                        areaStyle: {},
+                        smooth: true,
+                        color: '#e4a3e2'
+                    },
+                        {
+                            name: 'Goals',
+                            data: [0, 300, 600, 400, 1000, 730, 840, 300, 0],
+                            type: 'line',
+                            areaStyle: {},
+                            smooth: true,
+                            color: '#25c0ea'
+                        }
+                    ]
+                }
+            },
+            stackedBarOptions() {
+                return {
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer:
+                            {
+                                type: 'shadow'
+                            },
+                        backgroundColor: 'rgba(50,50,50,0.9)',
+
+                    },
+                    legend: {
+                        textStyle: {
+                            color: this.$q.dark.isActive ? 'white' : '#676767'
+                        }
+                    },
+                    color: ['#cc9dd1', '#9cebaf', '#41eff7'],
+                    // legend: {
+                    //     y: "bottom",
+                    //     data: [{name: 'Territory Sales', icon: 'circle'}, {
+                    //         name: 'Remaining Nation Sales',
+                    //         icon: 'circle'
+                    //     }]
+                    // },
+                    grid:
+                        {
+                            bottom: '3%',
+                            left: '15%',
+                            top: '18%',
+                            right: '5%',
+                            show: true
+                        },
+                    calculable: true,
+                    xAxis:
+                        {
+                            type: 'value',
+                            position: 'top',
+                            axisLine: {
+                                show: false
+                            },
+                            axisTick: {
+                                show: false
+                            },
+                            axisLabel: {
+                                formatter: function (value, index) {
+                                    return '$' + value;
+                                },
+                                color: this.$q.dark.isActive ? 'white' : '#676767'
+                            }
+                        },
+                    yAxis: [
+                        {
+                            type: 'category',
+                            data: ['Alex Morrow', 'Joanna Carter', 'Jimmy Joanna', 'Mack Hales'],
+                            axisLine: {
+                                show: false
+                            },
+                            axisTick: {
+                                show: false
+                            },
+                            axisLabel: {
+                                fontSize: 12,
+                                color: this.$q.dark.isActive ? 'white' : '#676767'
+                            }
+                        }
+                    ],
+                    series:
+                        [{
+                            name: 'Qualification',
+                            type: 'bar',
+                            stack: 'A',
+                            data: [300, 350, 400, 500]
+
+                        }, {
+                            name: 'Discovery',
+                            type: 'bar',
+                            stack: 'A',
+                            data: [100, 180, 250, 300]
+
+                        }, {
+                            name: 'Quote',
+                            type: 'bar',
+                            stack: 'A',
+                            data: [100, 120, 200, 220]
+
+                        }]
+                }
+            },
+            pieOptions() {
+                return {
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        orient: 'horizontal',
+                        bottom: 0,
+                        width: 300,
+                        textStyle: {
+                            color: this.$q.dark.isActive ? 'white' : '#676767'
+                        }
+                    },
+                    color: ['#66e398', '#cc9dd1', '#f0d377'],
+                    series: [
+                        {
+                            name: 'Competitor',
+                            type: 'pie',
+                            radius: ['40%', '70%'],
+                            avoidLabelOverlap: false,
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'inner',
+                                    formatter: function (param, index) {
+                                        return param.value + ' %'
+                                    }
+                                },
+                                emphasis: {
+                                    show: true,
+                                    textStyle: {
+                                        fontSize: '20',
+                                        fontWeight: 'bold'
+                                    }
+                                }
+                            },
+                            labelLine: {
+                                normal: {
+                                    show: false
+                                }
+                            },
+                            selectedMode: 'single',
+                            data: [
+                                {value: 40, name: 'Product 1', selected: true},
+                                {value: 20, name: 'Competitor 1', selected: false},
+                                {value: 15, name: 'Competitor 2', selected: false},
+                            ]
                         }
                     ]
                 }

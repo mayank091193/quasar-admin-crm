@@ -4,7 +4,7 @@
       <q-btn flat dense label="Today" class="q-mr-md bg-blue text-white" @click="setToday()"></q-btn>
       <q-btn flat dense round icon="keyboard_arrow_left" class="q-mr-sm bg-blue text-white" @click="onPrev()"></q-btn>
       <q-btn flat dense round icon="keyboard_arrow_right" class="bg-blue text-white" @click="onNext"></q-btn>
-      <span class="q-mr-xl q-toolbar__title nowrap">{{ title() }}</span>
+      <span class="q-mr-xl text-black q-toolbar__title nowrap">{{ title() }}</span>
       <q-select
         outlined
         dense
@@ -13,7 +13,8 @@
         label="Change theme"
         v-model="theme"
         :options="themesList"
-        class="float-right bg-white"
+        class="float-right"
+        :class="$q.dark.isActive?'bg-black':'bg-white'"
         style="width:130px"
       ></q-select>
     </q-toolbar>
@@ -52,6 +53,12 @@
     const CURRENT_DAY = new Date()
 
     const reRGBA = /^\s*rgb(a)?\s*\((\s*(\d+)\s*,\s*?){2}(\d+)\s*,?\s*([01]?\.?\d*?)?\s*\)\s*$/
+
+    Date.prototype.addDays = function(days) {
+                  var date = new Date(this.valueOf());
+                  date.setDate(date.getDate() + days);
+                  return date;
+              }
 
     function textToRgb(color) {
         if (typeof color !== 'string') {
@@ -148,14 +155,14 @@
                     {
                         title: 'Meeting',
                         details: 'Time to pitch my idea to the company',
-                        date: "2020-05-12",
+                        date: new Date().addDays(5).toISOString().slice(0,10),
                         bgcolor: 'blue',
                         icon: 'fas fa-handshake'
                     },
                     {
                         title: 'Lunch',
                         details: 'Company is paying!',
-                        date: "2020-05-14",
+                        date: new Date().addDays(3).toISOString().slice(0,10),
                         bgcolor: 'teal',
                         icon: 'fas fa-hamburger'
                     },
@@ -169,7 +176,7 @@
                     {
                         title: 'Leave',
                         details: 'Always a nice chat with mom',
-                        date: "2020-04-26",
+                        date: new Date().addDays(7).toISOString().slice(0,10),
                         bgcolor: 'blue-grey',
                         icon: 'fas fa-car'
                     },
@@ -183,7 +190,7 @@
                     {
                         title: 'Conference call',
                         details: 'Teaching Javascript 101',
-                        date: "2020-05-06",
+                        date: new Date().toISOString().slice(0,10),
                         bgcolor: 'blue',
                         icon: 'fas fa-chalkboard-teacher'
                     },
@@ -197,7 +204,7 @@
                     {
                         title: 'Rowing',
                         details: 'Time for some weekend R&R',
-                        date: "2020-04-5",
+                        date: new Date().addDays(9).toISOString().slice(0,10),
                         bgcolor: 'purple',
                         icon: 'rowing',
                         days: 1
@@ -568,7 +575,15 @@
                         label: theme.name,
                         value: {...theme}
                     })
-                })
+                });
+                if (this.$q.dark.isActive){
+                    this.theme = this.themes.filter(function(item){
+                        return item.name == 'dark';
+                    })[0]
+                }
+                else{
+                    this.theme = {name: 'default'};
+                }
                 return list
             }
         },

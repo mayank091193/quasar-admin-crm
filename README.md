@@ -65,6 +65,14 @@ quasar build
 Do reach out to me at "mayank091193@gmail.com" for queries.
 
 ## Screens UI
+**Dashboard - Dark mode**
+<p float="left">
+        <kbd>
+<img src="assets/dashboard_dark.png" border="1" alt="Dashboard - Dark mode"
+        title="Dashboard - Dark mode"  />
+                </kbd>
+</p>
+
 **Login**
 <p float="left">
         <kbd>

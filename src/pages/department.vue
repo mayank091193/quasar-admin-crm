@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <h5 class="q-my-xs q-pt-sm q-ml-md">Department</h5>
+    <h5 class="q-my-xs q-pt-sm q-ml-md text-black">Department</h5>
     <div class="row q-col-gutter-sm q-ma-xs q-mr-sm">
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <q-card flat bordered class="">

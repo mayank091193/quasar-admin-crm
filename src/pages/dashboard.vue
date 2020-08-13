@@ -3,7 +3,7 @@
     <div class="row q-col-gutter-sm q-ma-xs q-mr-sm">
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <q-card>
-          <q-card-section class="bg-blue-8 text-white">
+          <q-card-section :class="$q.dark.isActive?'blue_dark':'bg-blue-8'" class="text-white">
             <div class="row">
               <div class="col-10">
                 <div class="text-h6">Sales</div>
@@ -18,7 +18,7 @@
       </div>
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <q-card>
-          <q-card-section class="bg-green-8 text-white">
+          <q-card-section :class="$q.dark.isActive?'green_dark':'bg-green-8'" class="text-white">
             <div class="row">
               <div class="col-10">
                 <div class="text-h6">Goals</div>
@@ -33,7 +33,7 @@
       </div>
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <q-card>
-          <q-card-section class="bg-orange-9 text-white">
+          <q-card-section :class="$q.dark.isActive?'orange_dark':'bg-orange-9'" class="text-white">
             <div class="row">
               <div class="col-10">
                 <div class="text-h6">% Change</div>
@@ -56,7 +56,8 @@
           <q-card flat bordered class="">
             <q-card-section class="row">
               <div class="text-h6 col-12">Sales vs Goals
-                <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('bar')" color="grey-8">
+                <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('bar')"
+                       :color="!$q.dark.isActive? 'grey-8':'white'">
                   <q-tooltip>Download</q-tooltip>
                 </q-btn>
               </div>
@@ -65,7 +66,7 @@
             <q-separator inset></q-separator>
 
             <q-card-section>
-              <IEcharts :option="barChartOption" ref="bar" :resizable="true" style="height:220px"/>
+              <IEcharts :option="barOptions" ref="bar" :resizable="true" style="height:220px"/>
             </q-card-section>
           </q-card>
         </div>
@@ -74,7 +75,8 @@
           <q-card flat bordered class="">
             <q-card-section class="row">
               <div class="text-h6 col-12">Market Share & Growth
-                <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('line')" color="grey-8">
+                <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('line')"
+                       :color="!$q.dark.isActive? 'grey-8':'white'">
                   <q-tooltip>Download</q-tooltip>
                 </q-btn>
               </div>
@@ -92,7 +94,8 @@
           <q-card flat bordered class="">
             <q-card-section class="row">
               <div class="text-h6 col-12">Sales vs Quota
-                <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('gauge')" color="grey-8">
+                <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('gauge')"
+                       :color="!$q.dark.isActive? 'grey-8':'white'">
                   <q-tooltip>Download</q-tooltip>
                 </q-btn>
               </div>
@@ -113,7 +116,8 @@
         <q-card flat bordered class="">
           <q-card-section>
             <div class="text-h6">Key Competitors
-              <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('pie')" color="grey-8">
+              <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('pie')"
+                     :color="!$q.dark.isActive? 'grey-8':'white'">
                 <q-tooltip>Download</q-tooltip>
               </q-btn>
             </div>
@@ -131,7 +135,7 @@
           <q-card-section>
             <div class="text-h6">Sales Pipeline by Sales Rep
               <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('stack_bar')"
-                     color="grey-8">
+                     :color="!$q.dark.isActive? 'grey-8':'white'">
                 <q-tooltip>Download</q-tooltip>
               </q-btn>
             </div>
@@ -154,12 +158,13 @@
             :hide-header="mode === 'grid'"
             :columns="columns"
             row-key="name"
-            :grid="mode=='grid'"
+            :grid="mode==='grid'"
             :filter="filter"
             :pagination.sync="pagination"
+            :class="$q.dark.isActive?'text-white':'text-grey-8'"
           >
             <template v-slot:top-right="props">
-              <q-input borderless dense debounce="300" v-model="filter" placeholder="Search">
+              <q-input outlined dense debounce="300" v-model="filter" placeholder="Search">
                 <template v-slot:append>
                   <q-icon name="search"/>
                 </template>
@@ -234,132 +239,9 @@
     export default {
         data() {
             return {
-                barChartOption: {
-                    grid: {
-                        bottom: '20%',
-                        left: '15%',
-                        top: '3%'
-                    },
-                    legend: {
-                        bottom: 0
-                    },
-                    tooltip: {},
-                    dataset: {
-                        dimensions: ['time_period', 'sale', 'goal'],
-                        source: [
-                            {time_period: 'Jan 2019', sale: 50, goal: 70},
-                            {time_period: 'Feb 2019', sale: 80, goal: 75},
-                            {time_period: 'Mar 2019', sale: 86, goal: 80},
-                            {time_period: 'Apr 2019', sale: 72, goal: 85}
-                        ]
-                    },
-                    xAxis: {
-                        type: 'category',
-                        // axisLabel: {
-                        //     rotate: 45
-                        // }
-                    },
-                    yAxis: {
-                        // name: 'Goal',
-                        // nameLocation: 'center',
-                        // nameGap: 30,
-                        // nameTextStyle:{
-                        //     fontWeight: 'bold'
-                        // }
-                    },
-                    series: [
-                        {type: 'bar', name: 'Sales'},
-                        {type: 'bar', name: 'Goals'}
-                    ]
-                },
-                lineChartOption: {
-                    grid: {
-                        bottom: '20%',
-                        left: '15%',
-                        top: '3%'
-                    },
-                    legend: {
-                        bottom: 0
-                    },
-                    tooltip: {
-                        // formatter:
-                        //     function (param) {
-                        //     console.log(param)
-                        //     // return param.seriesName + '<br />' + param.name + ': ';
-                        // }
-                    },
-                    dataset: {
-                        dimensions: ['product_name', 'share', 'growth'],
-                        source: [
-                            {product_name: 'Product A', share: 20, growth: 25},
-                            {product_name: 'Product B', share: 22, growth: 18},
-                            {product_name: 'Product C', share: 40, growth: 45}
-                        ]
-                    },
-                    xAxis: {
-                        type: 'category',
-                        // axisLabel: {
-                        //     rotate: 45
-                        // }
-                    },
-                    yAxis: {
-                        axisLabel: {
-                            formatter: function (value, index) {
-                                return value + ' %'
-                            }
-                        }
-                    },
-                    series: [
-                        {type: 'line', name: 'Share'},
-                        {type: 'line', name: 'Growth'}
-                    ]
-                },
-                pieOptions: {
-                    tooltip: {
-                        show: true
-                    },
-                    legend: {
-                        orient: 'horizontal',
-                        bottom: 0,
-                        width: 300
-                    },
-                    series: [
-                        {
-                            name: 'Competitor',
-                            type: 'pie',
-                            radius: ['40%', '70%'],
-                            avoidLabelOverlap: false,
-                            label: {
-                                normal: {
-                                    show: true,
-                                    position: 'inner',
-                                    formatter: function (param, index) {
-                                        return param.value + ' %'
-                                    }
-                                },
-                                emphasis: {
-                                    show: true,
-                                    textStyle: {
-                                        fontSize: '20',
-                                        fontWeight: 'bold'
-                                    }
-                                }
-                            },
-                            labelLine: {
-                                normal: {
-                                    show: false
-                                }
-                            },
-                            selectedMode: 'single',
-                            data: [
-                                {value: 40, name: 'Product 1', selected: true},
-                                {value: 20, name: 'Competitor 1', selected: false},
-                                {value: 15, name: 'Competitor 2', selected: false},
-                                {value: 25, name: 'Competitor 3', selected: false},
-                            ]
-                        }
-                    ]
-                },
+                filter: '',
+                mode: 'list',
+
                 gaugeOptions: {
                     tooltip: {
                         formatter: '{a} <br/>{b} : {c}%'
@@ -367,6 +249,7 @@
                     series: [
                         {
                             type: 'gauge',
+                            name: "Sale",
                             detail: {formatter: '{value}%'},
                             data: [{value: 30}],
                             min: 0,
@@ -376,87 +259,12 @@
                                 lineStyle: {
                                     color: [[0.35, '#293c55'], [0.65, '#61a0a8'], [1, '#c23731']],
                                     width: 20
-                                }
+                                },
                             },
 
                         }
                     ]
                 },
-                stackedBarOptions: {
-                    tooltip: {
-                        trigger: 'axis',
-                        axisPointer:
-                            {
-                                type: 'shadow'
-                            },
-                        backgroundColor: 'rgba(50,50,50,0.9)',
-
-                    },
-                    legend: {
-                        bottom: 0
-                    },
-                    color: ['#3395dd', '#ed892d', '#34393b'],
-                    // legend: {
-                    //     y: "bottom",
-                    //     data: [{name: 'Territory Sales', icon: 'circle'}, {
-                    //         name: 'Remaining Nation Sales',
-                    //         icon: 'circle'
-                    //     }]
-                    // },
-                    grid:
-                        {
-                            bottom: '10%',
-                            left: '15%',
-                            top: '9%'
-                        },
-                    calculable: true,
-                    xAxis:
-                        {
-                            type: 'value',
-                            position:
-                                'top',
-                            axisLine:
-                                {
-                                    show: false
-                                },
-                            axisLabel: {
-                                formatter: function (value, index) {
-                                    return '$' + value;
-                                }
-                            }
-                        },
-                    yAxis: [
-                        {
-                            type: 'category',
-                            data: ['Alex Morrow', 'Joanna Carter', 'Jimmy Joanna', 'Mack Hales'],
-                            axisLabel: {
-                                fontSize: 12
-                            }
-                        }
-                    ],
-                    series:
-                        [{
-                            name: 'Qualification',
-                            type: 'bar',
-                            stack: 'A',
-                            data: [300, 350, 400, 500]
-
-                        }, {
-                            name: 'Discovery',
-                            type: 'bar',
-                            stack: 'A',
-                            data: [100, 180, 250, 300]
-
-                        }, {
-                            name: 'Quote',
-                            type: 'bar',
-                            stack: 'A',
-                            data: [100, 120, 200, 220]
-
-                        }]
-                },
-                filter: '',
-                mode: 'list',
                 columns: [
                     {name: 'activity_id', align: 'left', label: 'Activity ID', field: 'activity_id', sortable: true},
                     {
@@ -519,6 +327,239 @@
                 }
             }
         },
+        computed: {
+            barOptions() {
+                return {
+                    grid: {
+                        bottom: '20%',
+                        left: '15%',
+                        top: '3%'
+                    },
+                    legend: {
+                        bottom: 0,
+                        textStyle: {
+                            color: this.$q.dark.isActive ? 'white' : '#676767'
+                        }
+                    },
+                    tooltip: {},
+                    dataset: {
+                        dimensions: ['time_period', 'sale', 'goal'],
+                        source: [
+                            {time_period: 'Jan 2019', sale: 50, goal: 70},
+                            {time_period: 'Feb 2019', sale: 80, goal: 75},
+                            {time_period: 'Mar 2019', sale: 86, goal: 80},
+                            {time_period: 'Apr 2019', sale: 72, goal: 85}
+                        ]
+                    },
+                    xAxis: {
+                        type: 'category',
+                        // axisLabel: {
+                        //     rotate: 45
+                        // }
+                        axisLabel: {
+                            color: this.$q.dark.isActive ? 'white' : '#676767'
+                        }
+                    },
+                    yAxis: {
+                        // name: 'Goal',
+                        // nameLocation: 'center',
+                        // nameGap: 30,
+                        // nameTextStyle:{
+                        //     fontWeight: 'bold'
+                        // }
+                        axisLabel: {
+                            color: this.$q.dark.isActive ? 'white' : '#676767'
+                        }
+                    },
+                    series: [
+                        {type: 'bar', name: 'Sales'},
+                        {type: 'bar', name: 'Goals'}
+                    ]
+                }
+            },
+            lineChartOption() {
+                return {
+                    grid: {
+                        bottom: '20%',
+                        left: '15%',
+                        top: '3%'
+                    },
+                    legend: {
+                        bottom: 0,
+                        textStyle: {
+                            color: this.$q.dark.isActive ? 'white' : '#676767'
+                        }
+                    },
+                    tooltip: {
+                        // formatter:
+                        //     function (param) {
+                        //     console.log(param)
+                        //     // return param.seriesName + '<br />' + param.name + ': ';
+                        // }
+                    },
+                    dataset: {
+                        dimensions: ['product_name', 'share', 'growth'],
+                        source: [
+                            {product_name: 'Product A', share: 20, growth: 25},
+                            {product_name: 'Product B', share: 22, growth: 18},
+                            {product_name: 'Product C', share: 40, growth: 45}
+                        ]
+                    },
+                    xAxis: {
+                        type: 'category',
+                        // axisLabel: {
+                        //     rotate: 45
+                        // }
+                        axisLabel: {
+                            color: this.$q.dark.isActive ? 'white' : '#676767'
+                        }
+                    },
+                    yAxis: {
+                        axisLabel: {
+                            formatter: function (value, index) {
+                                return value + ' %'
+                            },
+                            color: this.$q.dark.isActive ? 'white' : '#676767'
+                        }
+                    },
+                    series: [
+                        {type: 'line', name: 'Share'},
+                        {type: 'line', name: 'Growth'}
+                    ]
+                }
+            },
+            pieOptions() {
+                return {
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        orient: 'horizontal',
+                        bottom: 0,
+                        width: 300,
+                        textStyle: {
+                            color: this.$q.dark.isActive ? 'white' : '#676767'
+                        }
+                    },
+                    series: [
+                        {
+                            name: 'Competitor',
+                            type: 'pie',
+                            radius: ['40%', '70%'],
+                            avoidLabelOverlap: false,
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'inner',
+                                    formatter: function (param, index) {
+                                        return param.value + ' %'
+                                    }
+                                },
+                                emphasis: {
+                                    show: true,
+                                    textStyle: {
+                                        fontSize: '20',
+                                        fontWeight: 'bold'
+                                    }
+                                }
+                            },
+                            labelLine: {
+                                normal: {
+                                    show: false
+                                }
+                            },
+                            selectedMode: 'single',
+                            data: [
+                                {value: 40, name: 'Product 1', selected: true},
+                                {value: 20, name: 'Competitor 1', selected: false},
+                                {value: 15, name: 'Competitor 2', selected: false},
+                                {value: 25, name: 'Competitor 3', selected: false},
+                            ]
+                        }
+                    ]
+                }
+            },
+            stackedBarOptions() {
+                return {
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer:
+                            {
+                                type: 'shadow'
+                            },
+                        backgroundColor: 'rgba(50,50,50,0.9)',
+
+                    },
+                    legend: {
+                        bottom: 0,
+                        textStyle: {
+                            color: this.$q.dark.isActive ? 'white' : '#676767'
+                        }
+                    },
+                    color: ['#3395dd', '#ed892d', '#34393b'],
+                    // legend: {
+                    //     y: "bottom",
+                    //     data: [{name: 'Territory Sales', icon: 'circle'}, {
+                    //         name: 'Remaining Nation Sales',
+                    //         icon: 'circle'
+                    //     }]
+                    // },
+                    grid:
+                        {
+                            bottom: '10%',
+                            left: '15%',
+                            top: '9%'
+                        },
+                    calculable: true,
+                    xAxis:
+                        {
+                            type: 'value',
+                            position:
+                                'top',
+                            axisLine:
+                                {
+                                    show: false
+                                },
+                            axisLabel: {
+                                formatter: function (value, index) {
+                                    return '$' + value;
+                                },
+                                color: this.$q.dark.isActive ? 'white' : '#676767'
+                            }
+                        },
+                    yAxis: [
+                        {
+                            type: 'category',
+                            data: ['Alex Morrow', 'Joanna Carter', 'Jimmy Joanna', 'Mack Hales'],
+                            axisLabel: {
+                                fontSize: 12,
+                                color: this.$q.dark.isActive ? 'white' : '#676767'
+                            }
+                        }
+                    ],
+                    series:
+                        [{
+                            name: 'Qualification',
+                            type: 'bar',
+                            stack: 'A',
+                            data: [300, 350, 400, 500]
+
+                        }, {
+                            name: 'Discovery',
+                            type: 'bar',
+                            stack: 'A',
+                            data: [100, 180, 250, 300]
+
+                        }, {
+                            name: 'Quote',
+                            type: 'bar',
+                            stack: 'A',
+                            data: [100, 120, 200, 220]
+
+                        }]
+                }
+            }
+        },
         methods: {
             SaveImage(type) {
                 const linkSource = this.$refs[type].getDataURL();
@@ -559,5 +600,15 @@
 </script>
 
 <style scoped>
+  .blue_dark {
+    background-color: #082f56;
+  }
 
+  .green_dark {
+    background-color: #084a0b;
+  }
+
+  .orange_dark {
+    background-color: #64350e;
+  }
 </style>

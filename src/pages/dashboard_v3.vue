@@ -208,7 +208,7 @@
                 </q-td>
               </template>
               <template v-slot:top-right="props">
-                <q-input dense borderless color="grey-3" label-color="white" v-model="filter" label="Search">
+                <q-input dense outlined color="grey-3" label-color="white" v-model="filter" label="Search">
                   <template v-slot:append>
                     <q-icon style="color:white" name="search"/>
                   </template>

@@ -1,82 +1,84 @@
 <template>
   <q-page class="q-pa-sm">
-    <q-table
-      title="Quotes"
-      :data="data"
-      :hide-header="mode === 'grid'"
-      :columns="columns"
-      row-key="name"
-      :grid="mode=='grid'"
-      :filter="filter"
-      :pagination.sync="pagination"
-    >
-      <template v-slot:top-right="props">
-        <q-input outlined dense debounce="300" v-model="filter" placeholder="Search">
-          <template v-slot:append>
-            <q-icon name="search"/>
-          </template>
-        </q-input>
+    <q-card>
+      <q-table
+        title="Quotes"
+        :data="data"
+        :hide-header="mode === 'grid'"
+        :columns="columns"
+        row-key="name"
+        :grid="mode=='grid'"
+        :filter="filter"
+        :pagination.sync="pagination"
+      >
+        <template v-slot:top-right="props">
+          <q-input outlined dense debounce="300" v-model="filter" placeholder="Search">
+            <template v-slot:append>
+              <q-icon name="search"/>
+            </template>
+          </q-input>
 
-        <q-btn
-          flat
-          round
-          dense
-          :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
-          @click="props.toggleFullscreen"
-          v-if="mode === 'list'"
-        >
-          <q-tooltip
-            :disable="$q.platform.is.mobile"
-            v-close-popup
-          >{{props.inFullscreen ? 'Exit Fullscreen' : 'Toggle Fullscreen'}}
-          </q-tooltip>
-        </q-btn>
-
-        <q-btn
-          flat
-          round
-          dense
-          :icon="mode === 'grid' ? 'list' : 'grid_on'"
-          @click="mode = mode === 'grid' ? 'list' : 'grid'; separator = mode === 'grid' ? 'none' : 'horizontal'"
-          v-if="!props.inFullscreen"
-        >
-          <q-tooltip
-            :disable="$q.platform.is.mobile"
-            v-close-popup
-          >{{mode==='grid' ? 'List' : 'Grid'}}
-          </q-tooltip>
-        </q-btn>
-
-        <q-btn
-          color="primary"
-          icon-right="archive"
-          label="Export to csv"
-          no-caps
-          @click="exportTable"
-        />
-      </template>
-      <template v-slot:body-cell-stage="props">
-        <q-td :props="props">
-          <q-chip
-            :color="(props.row.stage == 'Draft')?'green':(props.row.stage == 'Cheques'?'orange':'secondary')"
-            text-color="white"
+          <q-btn
+            flat
+            round
             dense
-            class="text-weight-bolder"
-            square
-            style="width: 85px"
-          >{{props.row.stage}}
-          </q-chip>
-        </q-td>
-      </template>
-      <template v-slot:body-cell-action="props">
-        <q-td :props="props">
-          <div class="q-gutter-sm">
-            <q-btn dense color="primary" icon="edit"/>
-            <q-btn dense color="red" icon="delete"/>
-          </div>
-        </q-td>
-      </template>
-    </q-table>
+            :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
+            @click="props.toggleFullscreen"
+            v-if="mode === 'list'"
+          >
+            <q-tooltip
+              :disable="$q.platform.is.mobile"
+              v-close-popup
+            >{{props.inFullscreen ? 'Exit Fullscreen' : 'Toggle Fullscreen'}}
+            </q-tooltip>
+          </q-btn>
+
+          <q-btn
+            flat
+            round
+            dense
+            :icon="mode === 'grid' ? 'list' : 'grid_on'"
+            @click="mode = mode === 'grid' ? 'list' : 'grid'; separator = mode === 'grid' ? 'none' : 'horizontal'"
+            v-if="!props.inFullscreen"
+          >
+            <q-tooltip
+              :disable="$q.platform.is.mobile"
+              v-close-popup
+            >{{mode==='grid' ? 'List' : 'Grid'}}
+            </q-tooltip>
+          </q-btn>
+
+          <q-btn
+            color="primary"
+            icon-right="archive"
+            label="Export to csv"
+            no-caps
+            @click="exportTable"
+          />
+        </template>
+        <template v-slot:body-cell-stage="props">
+          <q-td :props="props">
+            <q-chip
+              :color="(props.row.stage == 'Draft')?'green':(props.row.stage == 'Cheques'?'orange':'secondary')"
+              text-color="white"
+              dense
+              class="text-weight-bolder"
+              square
+              style="width: 85px"
+            >{{props.row.stage}}
+            </q-chip>
+          </q-td>
+        </template>
+        <template v-slot:body-cell-action="props">
+          <q-td :props="props">
+            <div class="q-gutter-sm">
+              <q-btn dense color="primary" icon="edit"/>
+              <q-btn dense color="red" icon="delete"/>
+            </div>
+          </q-td>
+        </template>
+      </q-table>
+    </q-card>
   </q-page>
 </template>
 
