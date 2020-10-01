@@ -15,6 +15,7 @@
     "apexcharts": "^3.15.5",
     "echarts": "^4.6.0",
     "quasar": "^1.0.0",
+    "serialize-javascript": "^5.0.1",
     "vue-apexcharts": "^1.5.2",
     "vue-echarts-v3": "^2.0.1",
     "vuedraggable": "^2.23.2"
