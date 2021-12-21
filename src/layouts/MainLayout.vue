@@ -45,7 +45,7 @@
       </q-toolbar>
     </q-header>
     <q-drawer
-      class="left-navigation text-white"
+      class="text-white left-navigation"
       show-if-above
       v-model="left"
       style="background-image: url(https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-2.32103624.jpg) !important;"
