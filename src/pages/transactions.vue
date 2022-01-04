@@ -282,7 +282,7 @@ export default {
     },
     showLoading() {
       this.$q.loading.show({
-        message: '<b>Demo loading screen, replace your message here<b>'
+        message: 'Demo loading screen, replace your message here.'
       })
 
       // hiding in 2s
