@@ -1,6 +1,6 @@
 [![MadeWithVueJs.com shield](https://madewithvuejs.com/storage/repo-shields/2437-shield.svg)](https://madewithvuejs.com/p/quasar-admin-crm/shield-link)
 
-## Vue 3 Demo: [https://next-quasar-admin-crm.netlify.com/](https://quasar-admin-crm-template.netlify.com/)
+## Vue 3 Demo: [https://next-quasar-admin-crm.netlify.com/](https://next-quasar-admin-crm.netlify.com/)
 
 
 # Looking for beautiful premium Quasar CRM admin template for Vue 3? Please drop me an [email](mailto:mayank091193@gmail.com). Buy only at <b>$49</b>!
