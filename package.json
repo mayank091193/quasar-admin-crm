@@ -14,7 +14,7 @@
     "@quasar/extras": "^1.0.0",
     "apexcharts": "^3.24.0",
     "echarts": "^4.6.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "quasar": "^1.0.0",
     "serialize-javascript": "^5.0.1",
     "vue-apexcharts": "^1.5.2",
